@@ -38,6 +38,22 @@ export default function InstagramFeed() {
     );
   };
 
+  const handleLike = (id) => {
+    setPosts((currentPosts) =>
+      currentPosts.map((post) => {
+        if (post.id === id) {
+          const isLiked = !post.isLiked;
+          return {
+            ...post,
+            isLiked,
+            like: isLiked ? post.like + 1 : post.like - 1,
+          };
+        }
+        return post;
+      })
+    );
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center py-8 px-4 bg-linear-65 from-purple-900 to-pink-900">
       <header className="w-full max-w-md bg-white rounded-lg px-4 py-3 mb-4 shadow-sm">
@@ -50,6 +66,7 @@ export default function InstagramFeed() {
             key={post.id}
             post={post}
             onBookmark={handleBookmark}
+            onLike={handleLike}
           />
         ))}
       </main>
