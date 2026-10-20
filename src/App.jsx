@@ -1,7 +1,9 @@
+import InstagramFeed from "./components/instagram-feed";
+
 export default function App() {
   return (
-    <div className="bg-gray-500 min-h-screen">
-      INIT
+    <div className="min-h-screen">
+      <InstagramFeed/>
     </div>
   );
 }
